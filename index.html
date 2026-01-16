@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM - Backend Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .info {
+            color: #888;
+            font-size: 0.95em;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .project-card h3 {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            color: #667eea;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+            color: #666;
+        }
+        
+        .contact-links {
+            margin-top: 15px;
+        }
+        
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+        
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .links {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👨‍💻 JM Portfolio</h1>
+            <p class="subtitle">Backend Developer</p>
+            <p class="info">한신대학교 컴퓨터공학과 | Spring Boot & Java | 2026년 2월 졸업 예정</p>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title">📄 전체 포트폴리오</h2>
+            <div class="project-card">
+                <h3>종합 포트폴리오</h3>
+                <p>모든 프로젝트와 기술 스택을 담은 종합 포트폴리오입니다.</p>
+                <div class="links">
+                    <a href="https://drive.google.com/file/d/ID_FULL_PDF/view" class="btn" target="_blank">📄 PDF 보기</a>
+                    <a href="https://docs.google.com/presentation/d/1hrQN32GL8PbYYUCoUE6wWInFoGZJUi7S/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" class="btn btn-secondary" target="_blank">📊 PPT 보기</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💼 주요 프로젝트</h2>
+            
+            <div class="project-card">
+                <h3>🤖 Plus Manager</h3>
+                <p>AI 기반 사무용품 발주 시스템</p>
+                <p class="tech-stack">🛠️ Spring Boot, Spring AI, QueryDSL, Redis, Docker</p>
+                <p>
+                    • 구글 AI Studio를 활용한 자연어 발주 처리<br>
+                    • QueryDSL 동적 쿼리로 복잡한 검색 조건 처리<br>
+                    • Redis 캐싱으로 99% 성능 개선 (5초 → 50ms)<br>
+                    • GitHub Actions CI/CD 파이프라인 구축
+                </p>
+                <div class="links">
+                    <a href="https://docs.google.com/presentation/d/1RNM_rPxbCVFhwi9r7GcPw53An8FgJZ4U/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" class="btn" target="_blank">상세보기</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>🗺️ Search Senior Center</h3>
+                <p>경로당 검색 및 위치 기반 서비스</p>
+                <p class="tech-stack">🛠️ Spring Boot, GCP, Redis, Kakao Map API</p>
+                <p>
+                    • GCP Cloud Run을 활용한 서버리스 배포<br>
+                    • 정부망 접근성을 고려한 클라우드 플랫폼 선택<br>
+                    • Redis 캐싱으로 지도 API 응답 속도 최적화<br>
+                    • 사용자 위치 기반 반경 검색 기능 구현
+                </p>
+                <div class="links">
+                    <a href="https://docs.google.com/presentation/d/1RNM_rPxbCVFhwi9r7GcPw53An8FgJZ4U/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" class="btn" target="_blank">상세보기</a>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>© 2026 JM Portfolio. Backend Developer.</p>
+            <div class="contact-links">
+                <a href="mailto:your-email@example.com">📧 Email</a>
+                <a href="https://github.com/dev-jm-1024" target="_blank">💻 GitHub</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
