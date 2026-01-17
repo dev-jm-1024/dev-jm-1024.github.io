@@ -19,17 +19,17 @@
                         sans: ['Pretendard', 'sans-serif'],
                     },
                     colors: {
-                        brand: '#0C78A9', // User requested color
+                        brand: '#0C78A9',
                         toss: {
-                            bg: '#F2F4F6', // Toss light gray background
+                            bg: '#F2F4F6',
                             card: '#FFFFFF',
-                            text: '#191F28', // Dark grey text
-                            subtext: '#8B95A1', // Sub text
+                            text: '#191F28',
+                            subtext: '#8B95A1',
                             border: '#E5E8EB',
                         }
                     },
                     boxShadow: {
-                        'soft': '0 4px 24px 0 rgba(0, 0, 0, 0.04)', // Very subtle shadow
+                        'soft': '0 4px 24px 0 rgba(0, 0, 0, 0.04)',
                         'hover': '0 12px 32px 0 rgba(0, 0, 0, 0.08)',
                     }
                 }
@@ -37,7 +37,6 @@
         }
     </script>
     <style>
-        /* Custom Utilities for that "Toss" feel */
         body {
             background-color: #F2F4F6;
             color: #191F28;
@@ -53,7 +52,6 @@
             transform: scale(0.98);
         }
         
-        /* Hide scrollbar for clean look */
         ::-webkit-scrollbar {
             display: none;
         }
@@ -61,7 +59,7 @@
 </head>
 <body class="flex flex-col min-h-screen items-center justify-center py-10 px-4 sm:px-0">
 
-    <!-- Main Container (Mobile Width optimized, but looks good on desktop) -->
+    <!-- Main Container -->
     <main class="w-full max-w-md space-y-8">
         
         <!-- Header Section -->
@@ -70,19 +68,69 @@
                 안녕하세요, 신입 백엔드 개발자<br>
                 <span class="text-brand">이재민</span>입니다.
             </h1>
-            <!-- <p class="text-toss-subtext text-lg font-medium">
-                필요한 자료를 선택해 주세요.
-            </p> -->
         </header>
 
-        <!-- Links Section -->
-        <section class="space-y-4">
+        <!-- Portfolio Section -->
+        <section class="space-y-3">
+            <h2 class="text-xs font-semibold text-gray-400 px-2 tracking-wider">PORTFOLIO</h2>
             
-            <!-- Link 1: Study PDF -->
-            <a href="https://peppy-arithmetic-a348f9.netlify.app/index.html" class="block">
+            <!-- 전체 포트폴리오 -->
+            <a href="https://docs.google.com/presentation/d/1hrQN32GL8PbYYUCoUE6wWInFoGZJUi7S/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" target="_blank" class="block">
+                <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-orange-500/10">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-500">
+                            <i class="ph-fill ph-presentation-chart text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold text-gray-900">전체 포트폴리오</span>
+                            <span class="text-sm text-toss-subtext">프로젝트 & 기술 스택 소개</span>
+                        </div>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-orange-500 transition-colors"></i>
+                </div>
+            </a>
+
+            <!-- Search Senior Center -->
+            <a href="https://docs.google.com/presentation/d/1RNM_rPxbCVFhwi9r7GcPw53An8FgJZ4U/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" target="_blank" class="block">
+                <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-purple-500/10">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-500">
+                            <i class="ph-fill ph-magnifying-glass text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold text-gray-900">Search Senior Center</span>
+                            <span class="text-sm text-toss-subtext">프로젝트 상세 소개</span>
+                        </div>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-purple-500 transition-colors"></i>
+                </div>
+            </a>
+
+            <!-- Plus Manager -->
+            <a href="https://docs.google.com/presentation/d/1qM33qB0GDDiaJdyomYkKs9Tz6rqYgbtI/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" target="_blank" class="block">
+                <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-rose-500/10">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500">
+                            <i class="ph-fill ph-chart-line-up text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold text-gray-900">Plus Manager</span>
+                            <span class="text-sm text-toss-subtext">프로젝트 상세 소개</span>
+                        </div>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-rose-500 transition-colors"></i>
+                </div>
+            </a>
+        </section>
+
+        <!-- Study & Blog Section -->
+        <section class="space-y-3">
+            <h2 class="text-xs font-semibold text-gray-400 px-2 tracking-wider">STUDY & BLOG</h2>
+            
+            <!-- 공부 PDF -->
+            <a href="https://peppy-arithmetic-a348f9.netlify.app/index.html" target="_blank" class="block">
                 <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-brand/10">
                     <div class="flex items-center space-x-4">
-                        <!-- Icon Container -->
                         <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-brand">
                             <i class="ph-fill ph-file-pdf text-2xl"></i>
                         </div>
@@ -91,12 +139,11 @@
                             <span class="text-sm text-toss-subtext">공부한 내용을 정리하여 PDF로 만들었습니다.</span>
                         </div>
                     </div>
-                    <!-- Arrow Icon -->
                     <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-brand transition-colors"></i>
                 </div>
             </a>
 
-            <!-- Link 2: Velog -->
+            <!-- Velog -->
             <a href="https://velog.io/@dlwoals1024/posts" target="_blank" class="block">
                 <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-green-500/10">
                     <div class="flex items-center space-x-4">
@@ -113,7 +160,7 @@
             </a>
         </section>
 
-        <!-- Footer / Contact (Optional) -->
+        <!-- Footer / Contact -->
         <footer class="mt-10 px-4 py-6 bg-white rounded-[24px] shadow-sm text-center">
             <h3 class="text-sm font-semibold text-gray-400 mb-2">develop6013@gmail.com</h3>
             <div class="flex justify-center space-x-6">
@@ -125,17 +172,14 @@
 
     </main>
 
-    <!-- Simple Toast Notification Script -->
+    <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 pointer-events-none z-50 text-sm font-medium">
         이메일 주소가 복사되었습니다.
     </div>
 
     <script>
         function copyEmail() {
-            // Placeholder email functionality
             const email = "develop6013@gmail.com";
-            
-            // Clipboard API might be restricted in some iframe environments, so we use a fallback
             const textArea = document.createElement("textarea");
             textArea.value = email;
             document.body.appendChild(textArea);
