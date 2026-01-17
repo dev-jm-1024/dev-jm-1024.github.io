@@ -3,233 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JM - Backend Developer Portfolio</title>
+    <title>Dev Archive</title>
+    <!-- Pretendard Font (Clean, Modern Korean Font) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons (Clean Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: '#0C78A9', // User requested color
+                        toss: {
+                            bg: '#F2F4F6', // Toss light gray background
+                            card: '#FFFFFF',
+                            text: '#191F28', // Dark grey text
+                            subtext: '#8B95A1', // Sub text
+                            border: '#E5E8EB',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 24px 0 rgba(0, 0, 0, 0.04)', // Very subtle shadow
+                        'hover': '0 12px 32px 0 rgba(0, 0, 0, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Custom Utilities for that "Toss" feel */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .info {
-            color: #888;
-            font-size: 0.95em;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            font-size: 1.5em;
-            color: #667eea;
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .project-card {
-            background: #f8f9fa;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-        
-        .project-card h3 {
-            font-size: 1.4em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .project-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .tech-stack {
-            color: #667eea;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        
-        .btn:hover {
-            background: #5568d3;
-        }
-        
-        .btn-secondary {
-            background: #6c757d;
-        }
-        
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #e9ecef;
-            color: #666;
-        }
-        
-        .contact-links {
-            margin-top: 15px;
-        }
-        
-        .contact-links a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 600;
-        }
-        
-        .contact-links a:hover {
-            text-decoration: underline;
+            background-color: #F2F4F6;
+            color: #191F28;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .links {
-                flex-direction: column;
-            }
-            
-            .btn {
-                text-align: center;
-            }
+        .card-transition {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+        }
+
+        .card-transition:active {
+            transform: scale(0.98);
+        }
+        
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>👨‍💻 JM Portfolio</h1>
-            <p class="subtitle">Backend Developer</p>
-            <p class="info">한신대학교 컴퓨터공학과 | Spring Boot & Java | 2026년 2월 졸업 예정</p>
+<body class="flex flex-col min-h-screen items-center justify-center py-10 px-4 sm:px-0">
+
+    <!-- Main Container (Mobile Width optimized, but looks good on desktop) -->
+    <main class="w-full max-w-md space-y-8">
+        
+        <!-- Header Section -->
+        <header class="text-left px-2">
+            <h1 class="text-3xl font-bold leading-tight mb-2 text-gray-900">
+                안녕하세요, 신입 백엔드 개발자<br>
+                <span class="text-brand">이재민</span>입니다.
+            </h1>
+            <!-- <p class="text-toss-subtext text-lg font-medium">
+                필요한 자료를 선택해 주세요.
+            </p> -->
         </header>
 
-        <div class="section">
-            <h2 class="section-title">📄 전체 포트폴리오</h2>
-            <div class="project-card">
-                <h3>종합 포트폴리오</h3>
-                <p>모든 프로젝트와 기술 스택을 담은 종합 포트폴리오입니다.</p>
-                <div class="links">
-                    <a href="https://drive.google.com/file/d/ID_FULL_PDF/view" class="btn" target="_blank">📄 PDF 보기</a>
-                    <a href="https://docs.google.com/presentation/d/1hrQN32GL8PbYYUCoUE6wWInFoGZJUi7S/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" class="btn btn-secondary" target="_blank">📊 PPT 보기</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">💼 주요 프로젝트</h2>
+        <!-- Links Section -->
+        <section class="space-y-4">
             
-            <div class="project-card">
-                <h3>🤖 Plus Manager</h3>
-                <p>AI 기반 사무용품 발주 시스템</p>
-                <p class="tech-stack">🛠️ Spring Boot, Spring AI, QueryDSL, Redis, Docker</p>
-                <p>
-                    • 구글 AI Studio를 활용한 자연어 발주 처리<br>
-                    • QueryDSL 동적 쿼리로 복잡한 검색 조건 처리<br>
-                    • Redis 캐싱으로 99% 성능 개선 (5초 → 50ms)<br>
-                    • GitHub Actions CI/CD 파이프라인 구축
-                </p>
-                <div class="links">
-                    <a href="https://docs.google.com/presentation/d/1RNM_rPxbCVFhwi9r7GcPw53An8FgJZ4U/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" class="btn" target="_blank">상세보기</a>
+            <!-- Link 1: Study PDF -->
+            <a href="https://peppy-arithmetic-a348f9.netlify.app/index.html" class="block">
+                <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-brand/10">
+                    <div class="flex items-center space-x-4">
+                        <!-- Icon Container -->
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-brand">
+                            <i class="ph-fill ph-file-pdf text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold text-gray-900">공부 PDF</span>
+                            <span class="text-sm text-toss-subtext">공부한 내용을 정리하여 PDF로 만들었습니다.</span>
+                        </div>
+                    </div>
+                    <!-- Arrow Icon -->
+                    <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-brand transition-colors"></i>
                 </div>
-            </div>
+            </a>
 
-            <div class="project-card">
-                <h3>🗺️ Search Senior Center</h3>
-                <p>경로당 검색 및 위치 기반 서비스</p>
-                <p class="tech-stack">🛠️ Spring Boot, GCP, Redis, Kakao Map API</p>
-                <p>
-                    • GCP Cloud Run을 활용한 서버리스 배포<br>
-                    • 정부망 접근성을 고려한 클라우드 플랫폼 선택<br>
-                    • Redis 캐싱으로 지도 API 응답 속도 최적화<br>
-                    • 사용자 위치 기반 반경 검색 기능 구현
-                </p>
-                <div class="links">
-                    <a href="https://docs.google.com/presentation/d/1RNM_rPxbCVFhwi9r7GcPw53An8FgJZ4U/edit?usp=sharing&ouid=117331890173986266164&rtpof=true&sd=true" class="btn" target="_blank">상세보기</a>
+            <!-- Link 2: Velog -->
+            <a href="https://velog.io/@dlwoals1024/posts" target="_blank" class="block">
+                <div class="card-transition bg-toss-card p-6 rounded-[24px] shadow-soft hover:shadow-hover flex items-center justify-between group cursor-pointer border border-transparent hover:border-green-500/10">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center text-green-600">
+                            <i class="ph-fill ph-code text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold text-gray-900">Velog</span>
+                            <span class="text-sm text-toss-subtext">개발하면서 공부한 것</span>
+                        </div>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-green-600 transition-colors"></i>
                 </div>
-            </div>
+            </a>
+        </section>
 
-        </div>
-
-        <footer>
-            <p>© 2026 JM Portfolio. Backend Developer.</p>
-            <div class="contact-links">
-                <a href="mailto:your-email@example.com">📧 Email</a>
-                <a href="https://github.com/dev-jm-1024" target="_blank">💻 GitHub</a>
+        <!-- Footer / Contact (Optional) -->
+        <footer class="mt-10 px-4 py-6 bg-white rounded-[24px] shadow-sm text-center">
+            <h3 class="text-sm font-semibold text-gray-400 mb-2">develop6013@gmail.com</h3>
+            <div class="flex justify-center space-x-6">
+                 <button onclick="copyEmail()" class="text-gray-500 hover:text-brand transition-colors text-sm font-medium flex items-center gap-1">
+                    <i class="ph ph-envelope-simple"></i> 이메일 복사하기
+                </button>
             </div>
         </footer>
+
+    </main>
+
+    <!-- Simple Toast Notification Script -->
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 pointer-events-none z-50 text-sm font-medium">
+        이메일 주소가 복사되었습니다.
     </div>
+
+    <script>
+        function copyEmail() {
+            // Placeholder email functionality
+            const email = "develop6013@gmail.com";
+            
+            // Clipboard API might be restricted in some iframe environments, so we use a fallback
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
