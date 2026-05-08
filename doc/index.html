@@ -1,1 +1,23 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Download</title>
+</head>
+<body>
+<script>
+    const link = document.createElement('a');
+    link.href = './jm_GC_test_doc.pdf';
+    link.download = 'jm_GC_test_doc.pdf';
+
+    document.body.appendChild(link);
+    link.click();
+
+    // 모바일/브라우저 대응용 fallback
+    setTimeout(() => {
+        window.location.href = './jm_GC_test_doc.pdf';
+    }, 500);
+</script>
+</body>
+</html>
