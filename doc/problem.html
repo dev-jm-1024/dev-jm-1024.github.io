@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM | Problem Solving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0C78A9;
+            --primary-dark: #095A80;
+            --primary-light: #E8F2F7;
+            --bg: #FAFBFC;
+            --surface: #FFFFFF;
+            --border: #E5E9EC;
+            --text-primary: #1A2733;
+            --text-secondary: #5A6878;
+            --text-muted: #8A95A3;
+            --shadow-sm: 0 1px 2px rgba(12, 120, 169, 0.04);
+            --shadow-md: 0 2px 8px rgba(12, 120, 169, 0.06);
+            --shadow-lg: 0 8px 24px rgba(12, 120, 169, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 56px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .header-meta .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .header h1 .accent {
+            color: var(--primary);
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .header-subtitle code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin: 0 2px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--border);
+        }
+
+        /* Link Card */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 22px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        .link-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .link-card:hover .link-icon {
+            background-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .link-card:hover .link-arrow {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .link-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 18px;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .link-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .link-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 0.04em;
+        }
+
+        .link-url {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-arrow {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-text .blink {
+            display: inline-block;
+            color: var(--primary);
+            animation: blink 1.2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Stagger Animation */
+        .link-card {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .link-card:nth-child(1) { animation-delay: 0.05s; }
+        .link-card:nth-child(2) { animation-delay: 0.10s; }
+        .link-card:nth-child(3) { animation-delay: 0.15s; }
+        .link-card:nth-child(4) { animation-delay: 0.20s; }
+
+        .header {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .section {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .section:nth-of-type(1) { animation-delay: 0.1s; }
+        .section:nth-of-type(2) { animation-delay: 0.2s; }
+        .section:nth-of-type(3) { animation-delay: 0.3s; }
+        .section:nth-of-type(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 18px 60px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+                padding-bottom: 24px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .header-subtitle {
+                font-size: 14px;
+            }
+
+            .section {
+                margin-bottom: 32px;
+            }
+
+            .link-card {
+                padding: 16px 18px;
+                gap: 14px;
+            }
+
+            .link-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .link-title {
+                font-size: 14px;
+            }
+
+            .link-url {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .container {
+                padding: 32px 14px 48px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .link-card {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+
+            .link-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 15px;
+            }
+
+            .link-title {
+                font-size: 13px;
+                flex-wrap: wrap;
+            }
+
+            .link-badge {
+                font-size: 9px;
+            }
+
+            .link-url {
+                font-size: 10px;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        /* Focus */
+        .link-card:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="header-meta">
+            <span class="dot"></span>
+            <span>PROBLEM SOLVING</span>
+        </div>
+        <h1>Problem Solving <span class="accent">: docs</span></h1>
+        <p class="header-subtitle">
+            개발 과정에서 마주한 문제들과 해결 과정을 기록한 문서 모음입니다.
+        </p>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Project</h2>
+        <div class="link-list">
+            <a href="./problem_solving.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">
+                        프로젝트 문제해결
+                        <span class="link-badge">PDF</span>
+                    </div>
+                    <div class="link-url">problem_solving.pdf</div>
+                </div>
+                <i class="fa-solid fa-arrow-right link-arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Test Document</h2>
+        <div class="link-list">
+            <a href="./jm_GC_test_doc.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">
+                        GC 테스트 문서
+                        <span class="link-badge">PDF</span>
+                    </div>
+                    <div class="link-url">jm_GC_test_doc.pdf</div>
+                </div>
+                <i class="fa-solid fa-arrow-right link-arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">
+            열람해주셔서 감사합니다!<span class="blink"></span>
+        </p>
+    </footer>
+</div>
+</body>
+</html>
