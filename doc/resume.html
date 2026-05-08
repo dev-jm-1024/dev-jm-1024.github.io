@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Download</title>
+</head>
+<body>
+<script>
+    const link = document.createElement('a');
+    link.href = './신입_백엔드개발자_이재민_이력서.pdf';
+    link.download = '신입_백엔드개발자_이재민_이력서.pdf';
+
+    document.body.appendChild(link);
+    link.click();
+
+    // 모바일/브라우저 대응용 fallback
+    setTimeout(() => {
+        window.location.href = './신입_백엔드개발자_이재민_이력서.pdf';
+    }, 500);
+</script>
+</body>
+</html>
