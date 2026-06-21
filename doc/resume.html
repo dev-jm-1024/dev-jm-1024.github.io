@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이력서 다운로드</title>
+    <title>이력서</title>
     <style>
         body { font-family: sans-serif; text-align: center; padding: 60px 20px; }
         a.btn {
-            display: inline-block; margin-top: 16px; padding: 14px 28px;
-            background: #2563eb; color: #fff; text-decoration: none;
-            border-radius: 8px; font-size: 16px;
+            display: inline-block; margin: 8px; padding: 14px 28px;
+            background: #2563eb; color: #fff; text-decoration: none; border-radius: 8px;
         }
+        a.ghost { background: transparent; color: #2563eb; border: 1px solid #2563eb; }
     </style>
 </head>
 <body>
-    <p>다운로드가 자동으로 시작되지 않으면 아래 버튼을 눌러주세요.</p>
-    <a id="dl" class="btn"
-       href="doc/신입백엔드개발자_이재민_이력서_및_자기소개서.pdf"
-       download="신입백엔드개발자_이재민_이력서_및_자기소개서.pdf">
-       이력서 다운로드
+    <p>이력서를 확인하거나 내려받으세요.</p>
+
+    <!-- 새 탭에서 바로 보기 (크롬 차단 회피) -->
+    <a class="btn" target="_blank" rel="noopener"
+       href="doc/신입백엔드개발자_이재민_이력서_및_자기소개서.pdf">
+       이력서 보기
     </a>
 
-    <script>
-        // 자동 다운로드 시도 (크롬에서 차단될 수 있음)
-        window.addEventListener('load', () => {
-            document.getElementById('dl').click();
-        });
-    </script>
+    <!-- 다운로드를 원할 때만 -->
+    <a class="btn ghost"
+       href="doc/신입백엔드개발자_이재민_이력서_및_자기소개서.pdf"
+       download="신입백엔드개발자_이재민_이력서_및_자기소개서.pdf">
+       다운로드
+    </a>
 </body>
 </html>
