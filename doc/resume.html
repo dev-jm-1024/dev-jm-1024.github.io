@@ -2,20 +2,30 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Download Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 다운로드</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 60px 20px; }
+        a.btn {
+            display: inline-block; margin-top: 16px; padding: 14px 28px;
+            background: #2563eb; color: #fff; text-decoration: none;
+            border-radius: 8px; font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-<script>
-    const fileName = '신입백엔드개발자_이재민_이력서_및_자기소개서.pdf';
-    const link = document.createElement('a');
+    <p>다운로드가 자동으로 시작되지 않으면 아래 버튼을 눌러주세요.</p>
+    <a id="dl" class="btn"
+       href="doc/신입백엔드개발자_이재민_이력서_및_자기소개서.pdf"
+       download="신입백엔드개발자_이재민_이력서_및_자기소개서.pdf">
+       이력서 다운로드
+    </a>
 
-    // 절대경로(/doc/) 대신 상대경로(doc/) 사용
-    link.href = 'doc/' + encodeURIComponent(fileName);
-    link.download = fileName;
-
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-</script>
+    <script>
+        // 자동 다운로드 시도 (크롬에서 차단될 수 있음)
+        window.addEventListener('load', () => {
+            document.getElementById('dl').click();
+        });
+    </script>
 </body>
 </html>
